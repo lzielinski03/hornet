@@ -2,9 +2,9 @@
 (function() {
 	angular.module('core').config(configRoutes);
 
-	configRoutes.$inject = ['$routeProvider', '$locationProvider'];
+	configRoutes.$inject = ['$routeProvider', '$locationProvider', 'UserService'];
 
-	function configRoutes ($routeProvider, $locationProvider) {
+	function configRoutes ($routeProvider, $locationProvider, UserService) {
 		$routeProvider
 			.when('/', {
 				templateUrl : 'core/view/home.html'
@@ -14,10 +14,10 @@
 				controller: 'coreController',
 				controllerAs: 'login'
 			})
-			.when('/contact', {
-				templateUrl : 'core/view/contact.html',
-				controller: 'contactController',
-				controllerAs: 'contact'
+			.when('/users', {
+				templateUrl : 'user/view/all.html',
+				controller: 'UserController',
+				controllerAs: 'user'
 			})
 			.otherwise({
 				templateUrl : 'core/view/home.html'
