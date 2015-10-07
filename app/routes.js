@@ -20,11 +20,12 @@ module.exports = function (app) {
 						message : 'Failed to authenticate token.'
 					});
 				} else {
+					
 					req.decoded = decoded;
-					next();
+					
 				}
 			});
-		} else {
+		} 
 			next();
 			/*
 			return res.status(403).send({
@@ -32,10 +33,11 @@ module.exports = function (app) {
 				message: 'No token provided.'
 			});
 			*/
-		}
+		
 	});
 
-	app.get('/me', function(req, res) {
+	app.get('/api/me', function(req, res) {
+		console.log(req.decoded);
 		res.send(req.decoded);
 	});
 

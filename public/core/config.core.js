@@ -1,23 +1,19 @@
-'use strict';
 (function() {
+	'use strict';
+
 	angular.module('core').config(configRoutes);
 
-	configRoutes.$inject = ['$routeProvider', '$locationProvider', 'UserService'];
+	configRoutes.$inject = ['$routeProvider', '$locationProvider'];
 
-	function configRoutes ($routeProvider, $locationProvider, UserService) {
+	function configRoutes ($routeProvider, $locationProvider) {
 		$routeProvider
 			.when('/', {
 				templateUrl : 'core/view/home.html'
 			})
 			.when('/login', {
-				templateUrl : 'core/view/login.html',
+				templateUrl : 'user/view/login.html',
 				controller: 'coreController',
 				controllerAs: 'login'
-			})
-			.when('/users', {
-				templateUrl : 'user/view/all.html',
-				controller: 'UserController',
-				controllerAs: 'user'
 			})
 			.otherwise({
 				templateUrl : 'core/view/home.html'

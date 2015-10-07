@@ -35,6 +35,7 @@ module.exports.create = function(req, res) {
 };
 
 module.exports.update = function (req, res) {
+	
 	User.findById(req.params.id, function(err, user) {
 			
 		if (err) res.send(err);

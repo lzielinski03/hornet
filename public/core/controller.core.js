@@ -17,8 +17,9 @@
 			vm.loggedIn = Auth.isLoggedIn();
 
 			Auth.getUser()
-				.then(function(data) {
-					vm.user = data;
+				.then(function(res) {
+					console.log(res);
+					vm.user = res.data;
 				});
 		});
 
@@ -28,10 +29,10 @@
 
 			Auth.login(vm.loginData.username, vm.loginData.password)
 				.then(function(data) {
-					if (data.data.sucess)
+					if (data.sucess)
 						$location.path('/users');
 					else
-						vm.error = data.data.message;
+						vm.error = data.message;
 					vm.processing = false;
 				});
 		};

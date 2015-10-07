@@ -4,7 +4,7 @@
 		'ngRoute',
 		'ngAnimate',
 		'authService',
-		'users'
+		'users1'
 		]
 	).config(config);
 

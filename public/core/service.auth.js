@@ -23,9 +23,9 @@
 					username: username,
 					password: password
 				})
-					.then(function(data) {
-						AuthToken.setToken(data.token);
-						return data;
+					.then(function(res) {
+						AuthToken.setToken(res.data.token);
+						return res.data;
 					});
 			};
 
@@ -63,7 +63,7 @@
 
 			function setToken(token) {
 				if (token)
-					$window.localStorage.setToken('token', token);
+					$window.localStorage.setItem('token', token);
 				else
 					$window.localStorage.removeItem('token');
 			};

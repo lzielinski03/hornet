@@ -1,7 +1,7 @@
-'use strict';
 (function(){
-	
-	angular.module('users')
+	'use strict';
+		
+	angular.module('users1')
 		.factory('UserService', UserService);
 
 	UserService.$inject = ['$http'];
@@ -25,8 +25,8 @@
 		function create(userData) {
 			return $http.post('/api/users/', userData);
 		};
-		function update(userData) {
-			return $http.put('/api/users/', userData);
+		function update(id, userData) {
+			return $http.put('/api/users/' + id, userData);
 		};
 		function del(id) {
 			return $http.delete('/api/users/', id);
